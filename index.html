@@ -4,126 +4,137 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Удостоверение личности</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png" />
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
-      background: #fff;
-      color: #000;
+      font-family: sans-serif;
+      background-color: #f2f2f2;
     }
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 16px;
+
+    header {
+      background-color: white;
+      padding: 12px 16px;
       font-weight: bold;
-      font-size: 18px;
-      border-bottom: 1px solid #ccc;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
     }
+
     .tabs {
       display: flex;
-      justify-content: space-around;
-      border-bottom: 1px solid #ccc;
+      justify-content: center;
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #ddd;
     }
+
     .tab {
       flex: 1;
+      padding: 10px;
       text-align: center;
-      padding: 12px 0;
       cursor: pointer;
-      font-weight: 500;
+      font-weight: bold;
+      color: #666;
     }
+
     .tab.active {
-      border-bottom: 2px solid #000;
+      border-bottom: 2px solid red;
+      color: black;
     }
+
     .content {
-      padding: 20px;
+      padding: 16px;
     }
-    .document-image {
+
+    .photo {
       width: 100%;
-      border-radius: 12px;
-      max-height: 500px;
-      object-fit: contain;
-    }
-    .info {
-      margin-bottom: 10px;
-    }
-    .label {
-      font-size: 14px;
-      color: #777;
-    }
-    .value {
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
-    .copy-button {
-      float: right;
-      opacity: 0.5;
-      cursor: pointer;
-    }
-    .buttons {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #fff;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-    }
-    .btn {
+      max-width: 350px;
+      margin: auto;
+      display: block;
       border-radius: 8px;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
     }
+
+    .info-label {
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    .info-value {
+      margin-bottom: 8px;
+    }
+
+    .btn {
+      display: block;
+      width: 90%;
+      margin: 12px auto;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+    }
+
     .btn-primary {
-      background-color: #2b68f8;
+      background-color: #ec1c24;
       color: white;
     }
+
     .btn-outline {
-      background: none;
-      border: 1px solid #2b68f8;
-      color: #2b68f8;
+      border: 2px solid #ec1c24;
+      color: #ec1c24;
+      background-color: white;
     }
   </style>
 </head>
 <body>
-  <div class="header">Удостоверение личности</div>
+  <header>Удостоверение личности</header>
   <div class="tabs">
-    <div class="tab active" onclick="showTab('document')">Документ</div>
-    <div class="tab" onclick="showTab('details')">Реквизиты</div>
+    <div class="tab active" onclick="showTab('doc')">Документ</div>
+    <div class="tab" onclick="showTab('info')">Реквизиты</div>
   </div>
 
-  <div class="content" id="document-tab">
-    <img src="5194971353961327883.jpg" alt="Документ" class="document-image" />
+  <div id="doc" class="content">
+    <img src="5194971353961327883.jpg" alt="Документ" class="photo" />
+    <a href="#" class="btn btn-primary">📱 Предъявить документ</a>
+    <a href="#" class="btn btn-outline">📤 Отправить документ</a>
   </div>
 
-  <div class="content" id="details-tab" style="display: none;">
-    <div class="info"><span class="label">ФИО:</span> <span class="value">Иванова Алина Сергеевна</span> <span class="copy-button">📋</span></div>
-    <div class="info"><span class="label">ИИН:</span> <span class="value">010101500000</span> <span class="copy-button">📋</span></div>
-    <div class="info"><span class="label">Дата рождения:</span> <span class="value">01.01.2001</span> <span class="copy-button">📋</span></div>
-    <div class="info"><span class="label">Номер документа:</span> <span class="value">123456789</span> <span class="copy-button">📋</span></div>
-    <div class="info"><span class="label">Дата выдачи:</span> <span class="value">04.03.2022</span></div>
-    <div class="info"><span class="label">Срок действия:</span> <span class="value">03.03.2032</span></div>
-  </div>
-
-  <div class="buttons">
-    <button class="btn btn-primary" onclick="alert('Документ предъявлен')">📷 Предъявить документ</button>
-    <button class="btn btn-outline" onclick="alert('Документ отправлен')">📤 Отправить документ</button>
-    <button class="btn btn-outline" onclick="alert('Реквизиты отправлены')">📤 Отправить реквизиты</button>
+  <div id="info" class="content" style="display: none;">
+    <div class="info-label">ФИО</div>
+    <div class="info-value">Иванова Алия Сергеевна</div>
+    <div class="info-label">ИИН</div>
+    <div class="info-value">010101123456</div>
+    <div class="info-label">Дата рождения</div>
+    <div class="info-value">01.01.2001</div>
+    <div class="info-label">Номер документа</div>
+    <div class="info-value">123456789</div>
+    <div class="info-label">Дата выдачи</div>
+    <div class="info-value">04.03.2022</div>
+    <div class="info-label">Срок действия</div>
+    <div class="info-value">03.03.2032</div>
+    <a href="#" class="btn btn-outline">📤 Отправить реквизиты</a>
   </div>
 
   <script>
-    function showTab(tab) {
-      document.getElementById('document-tab').style.display = tab === 'document' ? 'block' : 'none';
-      document.getElementById('details-tab').style.display = tab === 'details' ? 'block' : 'none';
+    function showTab(id) {
+      document.getElementById('doc').style.display = id === 'doc' ? 'block' : 'none';
+      document.getElementById('info').style.display = id === 'info' ? 'block' : 'none';
+
       const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(el => el.classList.remove('active'));
-      document.querySelector(`.tab:nth-child(${tab === 'document' ? 1 : 2})`).classList.add('active');
+      tabs.forEach((tab, idx) => {
+        tab.classList.toggle('active', (id === 'doc' && idx === 0) || (id === 'info' && idx === 1));
+      });
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').then(() => {
+        console.log("Service Worker registered");
+      });
     }
   </script>
 </body>
 </html>
+
