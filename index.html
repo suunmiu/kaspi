@@ -12,57 +12,62 @@
     body {
       margin: 0;
       font-family: sans-serif;
-      background-color: #f2f2f2;
+      background-color: #000;
+      color: #000;
     }
 
     header {
-      background-color: white;
-      padding: 12px 16px;
+      background-color: #fff;
+      padding: 14px;
       font-weight: bold;
       text-align: center;
+      font-size: 16px;
       border-bottom: 1px solid #ddd;
     }
 
     .tabs {
       display: flex;
-      justify-content: center;
-      background-color: #f9f9f9;
-      border-bottom: 1px solid #ddd;
+      justify-content: space-around;
+      background-color: #f0f0f0;
     }
 
     .tab {
       flex: 1;
-      padding: 10px;
       text-align: center;
-      cursor: pointer;
-      font-weight: bold;
-      color: #666;
+      padding: 12px 0;
+      font-size: 14px;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      color: #888;
     }
 
     .tab.active {
-      border-bottom: 2px solid red;
-      color: black;
+      border-bottom: 2px solid #000;
+      color: #000;
     }
 
     .content {
-      padding: 16px;
+      padding: 0;
+      background-color: #e7f2ee;
+      min-height: calc(100vh - 140px);
     }
 
     .photo {
       width: 100%;
-      max-width: 350px;
-      margin: auto;
-      display: block;
-      border-radius: 8px;
+      height: 520px;
+      object-fit: cover;
     }
 
     .info-label {
       font-weight: bold;
-      margin-top: 12px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #555;
     }
 
     .info-value {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      font-size: 16px;
     }
 
     .btn {
@@ -71,20 +76,20 @@
       margin: 12px auto;
       padding: 14px;
       border-radius: 8px;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 16px;
       text-align: center;
       text-decoration: none;
     }
 
     .btn-primary {
-      background-color: #ec1c24;
+      background-color: #004aad;
       color: white;
     }
 
     .btn-outline {
-      border: 2px solid #ec1c24;
-      color: #ec1c24;
+      border: 1px solid #004aad;
+      color: #004aad;
       background-color: white;
     }
   </style>
@@ -97,12 +102,12 @@
   </div>
 
   <div id="doc" class="content">
-    <img src="5194971353961327883.jpg" alt="Документ" class="photo" />
-    <a href="#" class="btn btn-primary">📱 Предъявить документ</a>
-    <a href="#" class="btn btn-outline">📤 Отправить документ</a>
+    <img src="5194971353961328328.jpg" alt="Документ" class="photo" />
+    <a href="#" class="btn btn-primary">Предъявить документ</a>
+    <a href="#" class="btn btn-outline">Отправить документ</a>
   </div>
 
-  <div id="info" class="content" style="display: none;">
+  <div id="info" class="content" style="display: none; padding: 20px; background-color: #fff;">
     <div class="info-label">ФИО</div>
     <div class="info-value">Иванова Алия Сергеевна</div>
     <div class="info-label">ИИН</div>
@@ -115,7 +120,7 @@
     <div class="info-value">04.03.2022</div>
     <div class="info-label">Срок действия</div>
     <div class="info-value">03.03.2032</div>
-    <a href="#" class="btn btn-outline">📤 Отправить реквизиты</a>
+    <a href="#" class="btn btn-outline">Отправить реквизиты</a>
   </div>
 
   <script>
@@ -137,4 +142,5 @@
   </script>
 </body>
 </html>
+
 
