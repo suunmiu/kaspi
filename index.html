@@ -39,21 +39,22 @@
     .tabs {
       position: relative;
       display: flex;
-      background: #e0e0e0;     /* серый фон */
-      border-radius: 20px;
-      padding: 5px;
-      width: 300px;
+      background: #ecebeb;     /* серый фон */
+      border-radius: 10px;
+      padding: 3px;
+      width: 330px;
       margin: 20px auto;       /* центрируем */
     }
 
     .tab {
       flex: 1;
-      padding: 10px 0;
+      padding: 5px 0;
       text-align: center;
       z-index: 2;              /* вкладки поверх селектора */
       cursor: pointer;
       color: #333;
       font-weight: 500;
+      font-size: 14px;
     }
 
     .tab.active {
@@ -62,12 +63,12 @@
 
     .tab-selector {
       position: absolute;
-      top: 5px;
-      left: 5px;
-      width: calc(50% - 10px); /* половина ширины контейнера */
-      height: calc(100% - 10px);
+      top: 3px;
+      left: 3px;
+      width: calc(50% - 3px); /* половина ширины контейнера */
+      height: calc(100% - 6px);
       background: white;
-      border-radius: 15px;
+      border-radius: 7px;
       transition: transform 0.3s ease;
       z-index: 1;
     }
@@ -75,18 +76,18 @@
 
     /* если активна 2-я вкладка */
     .tab:nth-child(2).active ~ ::before {
-      left: calc(33.33% + 5px);
+      left: calc(33.33% + 3px);
     }
 
     /* если активна 3-я вкладка */
     .tab:nth-child(3).active ~ ::before {
-      left: calc(66.66% + 5px);
+      left: calc(66.66% + 3px);
     }
 
 
     .content {
       padding: 0;
-      background-color: #e7f2ee;
+      background-color: #fff;
       min-height: calc(100vh - 140px);
     }
 
@@ -133,13 +134,13 @@
     }
 
     .btn-primary {
-      background-color: #004aad;
+      background-color: #0462ef;
       color: white;
     }
 
     .btn-outline {
-      border: 1px solid #004aad;
-      color: #004aad;
+      border: 1.5px solid #9abff1;
+      color: #0462ef;
       background-color: white;
     }
 
