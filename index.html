@@ -12,9 +12,10 @@
     body {
       margin: 0;
       font-family: sans-serif;
-      background-color: #000;
+      background-color: #fff; /* белый фон */
       color: #000;
     }
+
 
     header {
       background-color: #fff;
@@ -36,29 +37,52 @@
     }
 
     .tabs {
-      display: flex;
-      justify-content: center;
-      background-color: #ccc;
       position: relative;
-    }
-
-    .tab-selector {
-      position: absolute;
-      bottom: 0;
-      height: 4px;
-      width: 50%;
-      background-color: #fff;
-      transition: transform 0.3s ease;
+      display: flex;
+      background: #e0e0e0;     /* серый фон */
+      border-radius: 20px;
+      padding: 5px;
+      width: 300px;
+      margin: 20px auto;       /* центрируем */
     }
 
     .tab {
       flex: 1;
+      padding: 10px 0;
       text-align: center;
-      padding: 12px 0;
-      font-size: 14px;
+      z-index: 2;              /* вкладки поверх селектора */
+      cursor: pointer;
+      color: #333;
       font-weight: 500;
-      color: #000;
     }
+
+    .tab.active {
+      color: black;
+    }
+
+    .tab-selector {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: calc(50% - 10px); /* половина ширины контейнера */
+      height: calc(100% - 10px);
+      background: white;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      z-index: 1;
+    }
+
+
+    /* если активна 2-я вкладка */
+    .tab:nth-child(2).active ~ ::before {
+      left: calc(33.33% + 5px);
+    }
+
+    /* если активна 3-я вкладка */
+    .tab:nth-child(3).active ~ ::before {
+      left: calc(66.66% + 5px);
+    }
+
 
     .content {
       padding: 0;
@@ -136,10 +160,12 @@
     Удостоверение личности
   </header>
   <div class="tabs">
+    <div class="tab-selector" id="selector"></div>
     <div class="tab" onclick="showTab('doc')">Документ</div>
     <div class="tab" onclick="showTab('info')">Реквизиты</div>
-    <div class="tab-selector" id="selector"></div>
   </div>
+  
+
 
   <div id="doc" class="content">
     <div class="photo-container" id="photoContainer">
